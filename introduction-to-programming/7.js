@@ -1,5 +1,5 @@
 const CELL_SIZE = 20;
-const SNAKE_COLOR = "purple";
+const SNAKE_COLOR = "blue";
 const CANVAS_SIZE = 400;
 const REDRAW_INTERVAL = 100;
 
