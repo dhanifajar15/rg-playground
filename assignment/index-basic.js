@@ -95,7 +95,8 @@ function draw() {
         let snakeCanvas = document.getElementById("snakeBoard");
         let img = document.getElementById("apple");
         let ctx = snakeCanvas.getContext("2d");
-        
+        let music = new Audio("music.wav");
+        music.play();
         
         ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         
