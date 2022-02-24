@@ -62,12 +62,17 @@ let apple2 = {
 //apple.Image(apple.png);
 
 function drawCell(ctx, x, y, color) {
+    
+    let snakePicture = document.getElementById("snake");
     ctx.fillStyle = color;
-    ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+    
+    //ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+    ctx.drawImage(snakePicture, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE)
 }
 
 function drawScore(snake) {
     let scoreCanvas;
+    
     if (snake.color == snake1.color) {
         scoreCanvas = document.getElementById("score1Board");
     } else if (snake.color == snake2.color) {
@@ -90,7 +95,7 @@ function draw() {
         let snakeCanvas = document.getElementById("snakeBoard");
         let img = document.getElementById("apple");
         let ctx = snakeCanvas.getContext("2d");
-        let snakePicture = document.getElementById("snake");
+        
         
         ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         
