@@ -5,13 +5,14 @@ const REDRAW_INTERVAL = 50;
 const WIDTH = CANVAS_SIZE / CELL_SIZE;
 const HEIGHT = CANVAS_SIZE / CELL_SIZE;
 //this
+
 const DIRECTION = {
     LEFT: 0,
     RIGHT: 1,
     UP: 2,
     DOWN: 3,
 }
-const MOVE_INTERVAL = 50;
+let MOVE_INTERVAL = 100;
 
 function initPosition() {
     return {
@@ -96,7 +97,7 @@ function draw() {
         let img = document.getElementById("apple");
         let ctx = snakeCanvas.getContext("2d");
         let music = new Audio("music.wav");
-        music.play();
+        // music.play();
         
         ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         
@@ -138,11 +139,19 @@ function eat(snake, apple) {
     
 }
 
+function  addSpeed (snake) {
+
+    if (snake.score == 5) {
+        MOVE_INTERVAL = MOVE_INTERVAL - 5;
+    }
+}
+
 function moveLeft(snake) {
     snake.position.x--;
     teleport(snake);
     eat(snake, apple);
     eat(snake, apple2);
+    addSpeed(snake);
 }
 
 function moveRight(snake) {
@@ -150,6 +159,7 @@ function moveRight(snake) {
     teleport(snake);
     eat(snake, apple);
     eat(snake, apple2);
+    addSpeed(snake);
     
 }
 
@@ -158,6 +168,7 @@ function moveDown(snake) {
     teleport(snake);
     eat(snake, apple);
     eat(snake, apple2);
+    addSpeed(snake);
 }
 
 function moveUp(snake) {
@@ -165,6 +176,7 @@ function moveUp(snake) {
     teleport(snake);
     eat(snake, apple);
     eat(snake, apple2);
+    addSpeed(snake);
 }
 
 function move(snake) {
